@@ -19,7 +19,6 @@ const Results = ({ url, id, gt_pagespeed, gt_screenshot, gt_result, home, produc
     inputRef.current.select()
     document.execCommand('copy')
     e.target.focus()
-    setCopySuccess('Copied!')
   }
 
   let s = window.location.origin + '/' + id
@@ -37,12 +36,6 @@ const Results = ({ url, id, gt_pagespeed, gt_screenshot, gt_result, home, produc
               <input data-hj-whitelist type="text" ref={inputRef} id="form-section1-input1"
                      name="name" readOnly={'yes'}
                      value={s}/>
-              {copySuccess
-                ?
-                <img alt={'Copied to Clipboard'} id="image1" src={checkmarkImage}/>
-                :
-                <img alt={'Copy to Clipboard'} id="image1" src={copyImage} onClick={copyToClipboard}/>
-              }
             </div>
           </div>
         </div>
