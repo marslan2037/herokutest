@@ -16,6 +16,7 @@ let timer
 let c = 0
 
 function Main ({ match }) {
+  console.log(match)
   const options = [
     { value: 'all', label: 'All Pages' },
     { value: 'home', label: 'Home page' },
@@ -45,12 +46,13 @@ function Main ({ match }) {
 
   const debugMode = process.env.REACT_APP_DEBUG_MODE === 'true'
   const enableTracking = process.env.REACT_APP_TRACKING === 'true'
-  // const BACKEND_URL = process.env.REACT_APP_BACKEND_URL
-  const BACKEND_URL = 'https://api.testmystorespeed.com/api/v1'
+  const BACKEND_URL = process.env.REACT_APP_BACKEND_URL
 
   let id = null
 
   if (match && match.params && match.params.id) {
+    console.log(match);
+    console.log(match.params);
     id = match.params.id
   }
 
@@ -82,13 +84,13 @@ function Main ({ match }) {
   }
 
   const initData = () => {
-    console.log('chekcing');
-    console.log(id)
     let endpoint = null
     if (id !== 'home') {
+      console.log(id);
       endpoint = BACKEND_URL + '/sc/id/' + id
     }
     if (url) {
+      console.log(url);
       endpoint = BACKEND_URL + '/sc/hn?url=' + url.replace(/^http?:\/\//, '') + '&pages=' + checkWhat.value
     }
     if (!endpoint) return
@@ -150,12 +152,11 @@ function Main ({ match }) {
   }
 
   const directCheck = () => {
-    // if (debugMode) {
-    //   initDummy()
-    // } else {
-    //   initData()
-    // }
-    initData()
+    if (debugMode) {
+      initDummy()
+    } else {
+      initData()
+    }
   }
 
   const speedCheck = (event) => {
@@ -165,12 +166,11 @@ function Main ({ match }) {
     setData(null)
     if (url) {
       setLoading(true)
-      // if (debugMode) {
-      //   initDummy()
-      // } else {
-      //   initData()
-      // }
-    initData()
+      if (debugMode) {
+        initDummy()
+      } else {
+        initData()
+      }
     }
   }
 
