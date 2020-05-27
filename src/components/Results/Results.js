@@ -13,10 +13,8 @@ import { RowDevGtMetrix } from './components/RowDevGtMetrix'
 import FixIt from './components/FixIt'
 
 const Results = ({ url, id, gt_pagespeed, gt_screenshot, gt_result, home, product, collection, cart, detect, har_data, history, home_mobile, product_mobile, collection_mobile, cart_mobile }) => {
-  const inputRef = useRef(null)
 
   function copyToClipboard (e) {
-    inputRef.current.select()
     document.execCommand('copy')
     e.target.focus()
   }
@@ -33,14 +31,13 @@ const Results = ({ url, id, gt_pagespeed, gt_screenshot, gt_result, home, produc
           <div className="block">
             <div id="inputWithImage">
 
-              <input data-hj-whitelist type="text" ref={inputRef} id="form-section1-input1"
+              <input data-hj-whitelist type="text" id="form-section1-input1"
                      name="name" readOnly={'yes'}
                      value={s}/>
             </div>
           </div>
         </div>
       </nav>
-      
     </>
   )
 }

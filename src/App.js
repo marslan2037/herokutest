@@ -4,14 +4,14 @@ import Footer from './components/Footer'
 import './index.css'
 import './App.css'
 import Header from './components/Header'
-// import { withStore } from 'react-context-hook'
+import { withStore } from 'react-context-hook'
 
-// const storeConfig = {
-//   // listener: state => {
-//     // console.log('state changed', state)
-//   // },
-//   logging: process.env.NODE_ENV !== 'production'
-// }
+const storeConfig = {
+  // listener: state => {
+    // console.log('state changed', state)
+  // },
+  logging: process.env.NODE_ENV !== 'production'
+}
 
 function App () {
   return (
@@ -22,4 +22,4 @@ function App () {
   )
 }
 
-export default App
+export default withStore(App, {}, storeConfig)
