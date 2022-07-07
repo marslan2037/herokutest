@@ -34,7 +34,7 @@
     "react-context-hook": "^1.2.0",
     "react-dropdown-select": "^3.10.0",
     "react-select": "^3.0.8",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "http-status-codes": "^1.4.0",
     "react-sweet-progress": "^1.1.2",
     "react-facebook-pixel": "^0.1.3",
